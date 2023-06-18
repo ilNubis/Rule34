@@ -22,7 +22,7 @@ This method build the link of Rule34
 This method allows verifying if the URL belongs to Rule34
 
 ### > connect(self, url: str) -> tuple[str, html.HtmlElement, str]
-Questo metodo ti permette di ottenere il link, il tree e l'html
+This method allows you to obtain the link, the tree, and the HTML
 
 Example of usage:
 ```python
@@ -33,12 +33,26 @@ r34 = Rule34()
 link. tree, html = r34.connect(r34.build(["some tags"]))
 ```
 ### > lastPage(self) -> int
+This method allows you to obtain the maximum number of available pages for the selected tags
+
 ### > setPage(self, tags: list[str, str] = None, nPage: int = None) -> None
+This method allows you to set the tags for the page you can navigate to
+
 ### > getIdFromUrl(self, url: str) -> str
+This method allows you to extract the ID from a post link
+
 ### > getTagsFromUrl(self, url: str) -> str
+This method allows you to extract the tags from a search link
+
 ### > getNpageFromUrl(self, url: str) -> int
+This method allows you to extract the page number
+
 ### > getPosts(self) -> list[PostData, PostData]
+This method allows you to obtain the list of all posts on the selected page
+
 ### > getPostsFromPage(self, nPage: int = None) -> list[PostData, PostData]
+This method allows you to obtain the list of all posts by selecting a page
+
 ### > getPostsFormPages(self, page: list[int, int]) -> dict[str:list[PostData, PostData]]
 This method allows accessing different pages at same time
 
@@ -71,14 +85,15 @@ print(r34.link) # out: The same result as before executing getPostsFromUrl().
 
 ```
 #### > getPostFromUrl(self, url: str) -> PostData
+This method allows you to retrieve multimedia information using the post link
+
 #### > getPostFromId(self, id) -> PostData
+This method allows you to retrieve multimedia information using the post ID
+
 #### > getPostFromIndex(self, index: int) -> PostData
+This method allows you to retrieve the multimedia information of a post on the selected page
 
-All attribute of PostData class:
-* link -> str    <ATTENTION> The link returned is not the link of the post, but of the multimedia content
-* type -> str
-
-#### Example of Usage:
+Example of usage:
 ```python
 from Rule34 import Rule34
 
@@ -89,6 +104,11 @@ r34.setPage(["some_tags", "some_tags", "some_tags", "some_tags"], 3) # the 3 is 
 print(r34.getPostFromIndex(5)) # out the 5th post of page
 
 ```
+
+## All attribute of PostData class:
+* link -> str    <ATTENTION> The link returned is not the link of the post, but of the multimedia content
+* type -> str
+
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
