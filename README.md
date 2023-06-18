@@ -1,2 +1,97 @@
 # Rule34
-Una piccola libreria per poter usufruire dei contenuti di Rule34
+
+Rule34 is a Python package that allows you to access the content from the famous adult website.
+
+## Requirements
+To use this library, you need to install the following dependencies:
+* lxml
+* requests
+
+## Installation and updating
+Use the package manager [pip](https://pip.pypa.io/en/stable/) to install Rule34 like below. 
+Rerun this command to check for and install updates.
+```bash
+pip install git+https://github.com/ilNubis/Rule34
+```
+
+## All Method of Rule34 class:
+### > build(self, tags: list[str, str], nPage: int) -> str
+This method build the link of Rule34
+
+### > verify(self, url: str) -> bool
+This method allows verifying if the URL belongs to Rule34
+
+### > connect(self, url: str) -> tuple[str, html.HtmlElement, str]
+Questo metodo ti permette di ottenere il link, il tree e l'html
+
+Example of usage:
+```python
+from Rule34 import Rule34
+
+r34 = Rule34()
+
+link. tree, html = r34.connect(r34.build(["some tags"]))
+```
+### > lastPage(self) -> int
+### > setPage(self, tags: list[str, str] = None, nPage: int = None) -> None
+### > getIdFromUrl(self, url: str) -> str
+### > getTagsFromUrl(self, url: str) -> str
+### > getNpageFromUrl(self, url: str) -> int
+### > getPosts(self) -> list[PostData, PostData]
+### > getPostsFromPage(self, nPage: int = None) -> list[PostData, PostData]
+### > getPostsFormPages(self, page: list[int, int]) -> dict[str:list[PostData, PostData]]
+This method allows accessing different pages at same time
+
+Example of usage:
+```python
+from Rule34 import Rule34
+
+r34 = Rule34()
+r34.setPage(["some tags"])
+
+postsPages = r34.getPostsFromPages(range(0, 10))
+
+print(postsPages["page 1"]) # out: array with all posts of first page
+```
+### > getPostsFromUrl(self, url: str) -> list[PostData, PostData] 
+This method allows accessing pages with different tags without affecting the one currently being navigated
+
+Example of usage:
+```python
+from Rule34 import Rule34
+
+r34 = Rule34()
+r34.setPage(["some tags"])
+
+print(r34.link) # out: link of rule34 with some tags
+
+otherPosts = r34.getPostsFromUrl("generic rule34 link")
+
+print(r34.link) # out: The same result as before executing getPostsFromUrl().
+
+```
+#### > getPostFromUrl(self, url: str) -> PostData
+#### > getPostFromId(self, id) -> PostData
+#### > getPostFromIndex(self, index: int) -> PostData
+
+All attribute of PostData class:
+* link -> str    <ATTENTION> The link returned is not the link of the post, but of the multimedia content
+* type -> str
+
+#### Example of Usage:
+```python
+from Rule34 import Rule34
+
+r34 = Rule34()
+
+r34.setPage(["some_tags", "some_tags", "some_tags", "some_tags"], 3) # the 3 is the page selector
+
+print(r34.getPostFromIndex(5)) # out the 5th post of page
+
+```
+
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
