@@ -117,7 +117,7 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 ## License
 MIT License
 
-Copyright (c) 2023 Panebianco Carmelo Valerio
+Copyright (c) 2023 Nubis
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
