@@ -15,6 +15,7 @@ pip install git+https://github.com/ilNubis/Rule34
 ```
 
 ## All Method of Rule34 class:
+
 ### > build(self, tags: list[str, str], nPage: int) -> str
 This method build the link of Rule34
 
@@ -84,13 +85,13 @@ otherPosts = r34.getPostsFromUrl("generic rule34 link")
 print(r34.link) # out: The same result as before executing getPostsFromUrl().
 
 ```
-#### > getPostFromUrl(self, url: str) -> PostData
+### > getPostFromUrl(self, url: str) -> PostData
 This method allows you to retrieve multimedia information using the post link
 
-#### > getPostFromId(self, id) -> PostData
+### > getPostFromId(self, id) -> PostData
 This method allows you to retrieve multimedia information using the post ID
 
-#### > getPostFromIndex(self, index: int) -> PostData
+### > getPostFromIndex(self, index: int) -> PostData
 This method allows you to retrieve the multimedia information of a post on the selected page
 
 Example of usage:
