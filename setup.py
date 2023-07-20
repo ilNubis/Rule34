@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name='Rule34',
-    version='0.0.1',
+    version='0.0.2',
     author='Nubis',
     author_email='Nubis@hotmail.com',
     description='Python package that allows you to access the content from the famous adult website',
