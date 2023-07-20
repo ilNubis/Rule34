@@ -1,1 +1,1 @@
-from .Rule34 import Rule34, PostData
+from .tools import Rule34
