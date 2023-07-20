@@ -1,5 +1,7 @@
 # Rule34
 
+###Warnings, this instruction are old and wrong
+
 Rule34 is a Python package that allows you to access the content from the famous adult website.
 
 ## Requirements
