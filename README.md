@@ -1,7 +1,5 @@
 # Rule34
 
-###Warnings, this instruction are old and wrong
-
 Rule34 is a Python package that allows you to access the content from the famous adult website.
 
 ## Requirements
@@ -18,13 +16,13 @@ pip install git+https://github.com/ilNubis/Rule34
 
 ## All Method of Rule34 class:
 
-### > build(self, tags: list[str, str], nPage: int) -> str
+### > build_link(self, tags: list[str, str], nPage: int) -> str
 This method build the link of Rule34
 
-### > verify(self, url: str) -> bool
+### > is_url(self, url: str) -> bool
 This method allows verifying if the URL belongs to Rule34
 
-### > connect(self, url: str) -> tuple[str, html.HtmlElement, str]
+### > get_content_from_url(self, url: str) -> tuple[str, html.HtmlElement, str]
 This method allows you to obtain the link, the tree, and the HTML
 
 Example of usage:
@@ -33,30 +31,30 @@ from Rule34 import Rule34
 
 r34 = Rule34()
 
-link. tree, html = r34.connect(r34.build(["some tags"]))
+link. tree, html = r34.get_content_from_url(r34.build_link(["some tags"]))
 ```
-### > lastPage(self) -> int
+### > last_page(self) -> int
 This method allows you to obtain the maximum number of available pages for the selected tags
 
-### > setPage(self, tags: list[str, str] = None, nPage: int = None) -> None
+### > set_page(self, tags: list[str, str] = None, nPage: int = None) -> None
 This method allows you to set the tags for the page you can navigate to
 
-### > getIdFromUrl(self, url: str) -> str
+### > get_id_from_url(self, url: str) -> str
 This method allows you to extract the ID from a post link
 
-### > getTagsFromUrl(self, url: str) -> str
+### > get_tags_from_url(self, url: str) -> str
 This method allows you to extract the tags from a search link
 
 ### > getNpageFromUrl(self, url: str) -> int
 This method allows you to extract the page number
 
-### > getPosts(self) -> list[PostData, PostData]
+### > get_posts(self) -> list[PostData, PostData]
 This method allows you to obtain the list of all posts on the selected page
 
-### > getPostsFromPage(self, nPage: int = None) -> list[PostData, PostData]
+### > get_posts_from_page(self, nPage: int = None) -> list[PostData, PostData]
 This method allows you to obtain the list of all posts by selecting a page
 
-### > getPostsFormPages(self, page: list[int, int]) -> dict[str:list[PostData, PostData]]
+### > get_posts_form_pages(self, page: list[int, int]) -> dict[str:list[PostData, PostData]]
 This method allows accessing different pages at same time
 
 Example of usage:
@@ -64,13 +62,13 @@ Example of usage:
 from Rule34 import Rule34
 
 r34 = Rule34()
-r34.setPage(["some tags"])
+r34.set_page(["some tags"])
 
-postsPages = r34.getPostsFromPages(range(0, 10))
+posts_pages = r34.get_posts_form_pages(range(0, 10))
 
-print(postsPages["page 1"]) # out: array with all posts of first page
+print(posts_pages["page 1"]) # out: array with all posts of first page
 ```
-### > getPostsFromUrl(self, url: str) -> list[PostData, PostData] 
+### > get_posts_from_url(self, url: str) -> list[PostData, PostData] 
 This method allows accessing pages with different tags without affecting the one currently being navigated
 
 Example of usage:
@@ -82,18 +80,18 @@ r34.setPage(["some tags"])
 
 print(r34.link) # out: link of rule34 with some tags
 
-otherPosts = r34.getPostsFromUrl("generic rule34 link")
+otherPosts = r34.get_posts_from_url("generic rule34 link")
 
-print(r34.link) # out: The same result as before executing getPostsFromUrl().
+print(r34.link) # out: The same result as before executing get_posts_from_url().
 
 ```
-### > getPostFromUrl(self, url: str) -> PostData
+### > get_post_from_url(self, url: str) -> PostData
 This method allows you to retrieve multimedia information using the post link
 
-### > getPostFromId(self, id) -> PostData
+### > get_post_from_id(self, id) -> PostData
 This method allows you to retrieve multimedia information using the post ID
 
-### > getPostFromIndex(self, index: int) -> PostData
+### > get_post_from_index(self, index: int) -> PostData
 This method allows you to retrieve the multimedia information of a post on the selected page
 
 Example of usage:
@@ -102,15 +100,15 @@ from Rule34 import Rule34
 
 r34 = Rule34()
 
-r34.setPage(["some_tags", "some_tags", "some_tags", "some_tags"], 3) # the 3 is the page selector
+r34.set_page(["some_tags", "some_tags", "some_tags", "some_tags"], 3) # the 3 is the page selector
 
-print(r34.getPostFromIndex(5)) # out the 5th post of page
+print(r34.get_post_from_index(5)) # out the 5th post of page
 
 ```
 
 ## All attribute of PostData class:
-* link -> str    <ATTENTION> The link returned is not the link of the post, but of the multimedia content
-* type -> str
+* link -> str    <The link returned is not the link of the post, but of the multimedia content>
+* type -> str    <Type of multimedia content>
 
 
 ## Contributing
