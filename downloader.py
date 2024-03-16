@@ -32,12 +32,13 @@ def scale_data(data: int) -> tuple[int, str]:
 
     return int(data), type_data
 
-headers = {
-"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3"
-}
-context = ssl._create_unverified_context()
 
 def download(filename: str, url: str):
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3"
+    }
+    context = ssl._create_unverified_context()
+    
     # Path Manager
     if '/' in filename:
         *path, filename = filename.split('/')
