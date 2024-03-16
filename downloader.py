@@ -89,7 +89,7 @@ def download(filename: str, url: str):
                 f.write(buffer)
                 yield file_size, dl_content, download_speed
 
-
-for file_size, dl_content, download_speed in download(filename="test.mp4", url="https://clips-media-assets2.twitch.tv/AvtQo2sZJ_eqgEafqgTOfA/39560787301-offset-3740.mp4"):
-    download_speed, type_data = scale_data(download_speed*8)
-    print(f'Downloaded: {loading_bar(dl_content, file_size, 20)} {dl_content//(file_size//100)}% Speed: {download_speed} {type_data}/s     ', end='\r')
+if __name__ == "__main__":
+    for file_size, dl_content, download_speed in download(filename="test.mp4", url="https://clips-media-assets2.twitch.tv/AvtQo2sZJ_eqgEafqgTOfA/39560787301-offset-3740.mp4"):
+        download_speed, type_data = scale_data(download_speed*8)
+        print(f'Downloaded: {loading_bar(dl_content, file_size, 20)} {dl_content//(file_size//100)}% Speed: {download_speed} {type_data}/s     ', end='\r')
